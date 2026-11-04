@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <meta name="description" content="교육과 사람을 연결하는 실무자의 개인 포트폴리오" />
+  <title>김아현 | Personal Portfolio</title>
+  <style>
+    :root { --ink:#17243b; --muted:#738098; --line:#e7eaf1; --bg:#f6f7fb; --blue:#4d6aff; --blue2:#7d8eff; --mint:#d9f6ec; --white:#fff; --shadow:0 24px 70px rgba(33,51,94,.07); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-width:320px; background:var(--bg); color:var(--ink); font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    ::selection { background:#dfe5ff; color:#213577; }
+    .page { max-width:1190px; padding:0 38px; margin:0 auto; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:18px; height:92px; }
+    .brand { display:flex; align-items:center; gap:11px; font-size:16px; font-weight:850; letter-spacing:-.6px; }
+    .brand-mark { width:35px; height:35px; border-radius:12px; display:grid; place-items:center; color:white; font-size:13px; background:linear-gradient(140deg,#526cff,#9c9afa); box-shadow:0 6px 17px #4d6aff35; }
+    .top-links { display:flex; gap:29px; align-items:center; font-size:13px; font-weight:650; color:#65748c; }
+    .top-links a { transition:color .2s; }
+    .top-links a:hover,.top-links a:focus-visible { color:var(--blue); }
+    .nav-cta { padding:12px 18px; color:#425bdb !important; background:#edf0ff; border-radius:12px; }
+    .hero { display:grid; grid-template-columns:1.18fr .82fr; align-items:center; gap:35px; padding:74px 0 102px; }
+    .eyebrow { display:inline-flex; gap:8px; align-items:center; padding:9px 14px; border-radius:100px; background:#e9ecff; color:#4d60d3; font-weight:750; font-size:12px; letter-spacing:.3px; }
+    .eyebrow i { width:7px; height:7px; border-radius:50%; background:#6d7df9; box-shadow:0 0 0 4px #d9deff; }
+    h1 { font-size:clamp(42px,5.4vw,70px); line-height:1.22; letter-spacing:-3.7px; margin:24px 0 23px; font-weight:850; }
+    .gradient { background:linear-gradient(105deg,#5066ef,#8b7bec); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero-description { font-size:16px; color:#6a7890; line-height:1.9; max-width:505px; word-break:keep-all; }
+    .hero-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; border:1px solid transparent; border-radius:14px; padding:15px 21px; font-size:13px; font-weight:770; cursor:pointer; transition:transform .18s,box-shadow .18s,background .18s; }
+    .btn:hover { transform:translateY(-3px); }
+    .btn:active,.quick-link:active { transform:scale(.97); }
+    .btn-primary { background:var(--blue); color:white; box-shadow:0 12px 25px #536cff2d; }
+    .btn-primary:hover { box-shadow:0 16px 32px #536cff40; }
+    .btn-secondary { background:white; color:#48576c; border-color:#e5e8ef; }
+    .hero-visual { position:relative; min-height:410px; display:grid; place-items:center; }
+    .orbit { position:absolute; width:380px; height:380px; border:1px dashed #d2d8ed; border-radius:50%; }
+    .orbit-small { width:284px; height:284px; border-style:solid; border-color:#e3e7f5; }
+    .portrait-card { z-index:2; display:flex; flex-direction:column; justify-content:flex-end; width:275px; height:320px; padding:26px; border-radius:30px; background:linear-gradient(145deg,#cad6ff 0%,#dee8ff 55%,#e7f2fa 100%); box-shadow:0 30px 65px #6477b52a; transform:rotate(-5deg); overflow:hidden; position:relative; }
+    .portrait-card::before { content:""; position:absolute; width:230px; height:230px; background:linear-gradient(160deg,#a4b2ff,#d0defe); border-radius:50%; top:26px; left:23px; opacity:.9; }
+    .portrait-card::after { content:"✦"; position:absolute; font-size:156px; color:#ffffff8c; top:0; right:37px; transform:rotate(12deg); }
+    .portrait-card .avatar { position:relative; z-index:1; display:grid; place-items:center; align-self:center; width:145px; height:145px; border-radius:40px; font-size:76px; color:#5164c7; background:#ffffffad; backdrop-filter:blur(9px); margin-bottom:23px; }
+    .portrait-card .portrait-label { z-index:1; position:relative; background:#ffffffdb; border-radius:15px; padding:12px 15px; font-size:12px; font-weight:800; color:#566184; text-align:center; }
+    .float-chip { position:absolute; z-index:3; background:white; border:1px solid #eef0f8; box-shadow:0 15px 35px #53608b1d; border-radius:17px; padding:14px 17px; font-size:12px; font-weight:800; color:#55637b; }
+    .chip-left { left:0; top:68px; transform:rotate(-7deg); }
+    .chip-right { right:0; bottom:80px; transform:rotate(7deg); }
+    .chip-icon { margin-right:5px; }
+    .section { padding:31px 0 60px; scroll-margin-top:30px; }
+    .section-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:22px; gap:12px; }
+    .section-label { color:#6578ec; font-size:11px; letter-spacing:2.1px; font-weight:850; text-transform:uppercase; }
+    h2 { font-size:29px; letter-spacing:-1.4px; margin:10px 0 0; }
+    .section-sub { font-size:13px; color:#8390a2; margin:0 0 5px; }
+    .about-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:18px; }
+    .panel { background:var(--white); border:1px solid #edf0f5; border-radius:23px; padding:30px; box-shadow:var(--shadow); }
+    .panel h3 { margin:0 0 17px; font-size:18px; letter-spacing:-.6px; }
+    .panel p { margin:0; font-size:14px; line-height:1.95; color:#68778c; word-break:keep-all; }
+    .accent-line { width:37px; height:4px; border-radius:4px; background:#7184fd; margin-bottom:20px; }
+    .tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:25px; }
+    .tag { background:#f2f4ff; color:#596ed2; border-radius:9px; padding:9px 11px; font-size:12px; font-weight:750; }
+    .profile-list { display:grid; gap:18px; }
+    .profile-item { display:flex; gap:14px; align-items:center; }
+    .icon-box { width:43px; height:43px; flex-shrink:0; display:grid; place-items:center; border-radius:13px; background:#f0f2ff; color:#6274ed; font-size:18px; }
+    .profile-item span { display:block; font-size:11px; color:#98a2b1; margin-bottom:4px; }
+    .profile-item strong { font-size:14px; font-weight:750; }
+    .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .work-card { background:#fff; border:1px solid #edf0f5; border-radius:23px; padding:28px; transition:transform .2s,box-shadow .2s; }
+    .work-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); }
+    .work-card .icon-box { width:49px; height:49px; font-size:23px; margin-bottom:25px; }
+    .work-card h3 { font-size:16px; letter-spacing:-.4px; margin:0 0 13px; }
+    .work-card p { font-size:13px; color:#7a8799; line-height:1.85; margin:0; word-break:keep-all; }
+    .timeline { background:white; border:1px solid #edf0f5; border-radius:23px; padding:31px 34px; }
+    .timeline-row { display:grid; grid-template-columns:100px 22px 1fr; gap:15px; min-height:91px; }
+    .timeline-row:last-child { min-height:auto; }
+    .date { font-size:12px; color:#78879e; padding-top:3px; font-weight:650; }
+    .trail { position:relative; display:flex; justify-content:center; }
+    .trail::before { content:""; position:absolute; top:13px; bottom:-9px; width:2px; background:#ebedfa; }
+    .timeline-row:last-child .trail::before { display:none; }
+    .dot { position:relative; z-index:1; margin-top:2px; width:12px; height:12px; border:3px solid #697cf5; border-radius:50%; background:#fff; }
+    .timeline-content strong { display:block; font-size:14px; margin:0 0 7px; }
+    .timeline-content p { margin:0; font-size:12px; color:#8a96a7; line-height:1.7; }
+    .life-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .life-card { border-radius:22px; padding:24px; min-height:178px; }
+    .life-card:nth-child(1) { background:#e9e9ff; }
+    .life-card:nth-child(2) { background:#e2f5ee; }
+    .life-card:nth-child(3) { background:#fff0e4; }
+    .life-emoji { font-size:29px; margin-bottom:20px; }
+    .life-card strong { display:block; font-size:15px; margin-bottom:8px; }
+    .life-card p { margin:0; font-size:12px; color:#737f90; line-height:1.65; }
+    .project-section { padding:34px 0 85px; }
+    .project-wrap { padding:34px; border-radius:26px; background:#1e2b4a; color:white; position:relative; overflow:hidden; }
+    .project-wrap::after { content:""; position:absolute; right:-76px; top:-135px; width:350px; height:350px; border-radius:50%; border:55px solid #ffffff09; pointer-events:none; }
+    .project-wrap .section-label { color:#aab9ff; }
+    .project-wrap h2 { font-size:26px; }
+    .project-wrap p { color:#aab5cd; font-size:13px; margin:10px 0 25px; line-height:1.7; }
+    .quick-grid { position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+    .quick-link { background:#ffffff12; border:1px solid #ffffff22; border-radius:16px; padding:21px 20px; display:flex; gap:15px; align-items:center; transition:transform .18s,background .18s; }
+    .quick-link:hover { background:#ffffff26; transform:translateY(-3px); }
+    .quick-num { width:37px; height:37px; border-radius:11px; flex-shrink:0; display:grid; place-items:center; font-size:16px; font-weight:850; background:#ffffff19; }
+    .quick-text { min-width:0; flex:1; }
+    .quick-text strong { display:block; font-size:13px; margin-bottom:5px; }
+    .quick-text span { display:block; font-size:11px; color:#aebad1; }
+    .quick-arrow { font-size:17px; color:#bfcbf8; }
+    .footer { padding:5px 0 35px; border-top:1px solid #e5e9f0; display:flex; justify-content:space-between; gap:12px; color:#98a2b2; font-size:11px; }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .toast { position:fixed; bottom:25px; left:50%; transform:translate(-50%,20px); opacity:0; pointer-events:none; z-index:20; border-radius:12px; padding:14px 19px; font-size:13px; color:#fff; background:#293856; box-shadow:0 12px 30px #1f2c4650; transition:opacity .2s,transform .2s; white-space:nowrap; max-width:calc(100vw - 30px); }
+    .toast.show { opacity:1; transform:translate(-50%,0); }
+    :focus-visible { outline:3px solid #8d9aff; outline-offset:4px; }
+    @media (max-width:900px) { .hero { gap:10px; } .hero-visual { transform:scale(.87); } h1 { letter-spacing:-2.5px; } }
+    @media (max-width:700px) { .page { padding:0 22px; } .nav { height:77px; } .top-links { gap:14px; } .top-links .desktop-only { display:none; } .hero { grid-template-columns:1fr; padding:50px 0 44px; gap:0; } h1 { font-size:46px; letter-spacing:-2.8px; } .hero-description { font-size:14px; } .hero-visual { min-height:355px; transform:scale(.83); margin:-5px 0 -30px; } .about-grid { grid-template-columns:1fr; } .work-grid,.life-grid { grid-template-columns:1fr; } .work-card { padding:24px; } .work-card .icon-box { margin-bottom:17px; } .life-card { min-height:unset; } .section { padding:33px 0; } .section-head { align-items:start; flex-direction:column; } .section-sub { margin-top:2px; } .quick-grid { grid-template-columns:1fr; } .project-section { padding:35px 0 60px; } .project-wrap { padding:27px 23px; } .footer { flex-direction:column; } }
+    @media (max-width:400px) { .page { padding:0 17px; } .top-links { gap:10px; } .nav-cta { padding:10px 12px; } .brand { font-size:14px; } .hero-visual { transform:scale(.73); margin:-24px 0 -52px; } h1 { font-size:39px; } .timeline { padding:25px 18px; } .timeline-row { grid-template-columns:78px 18px 1fr; gap:9px; } .panel { padding:24px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; } .reveal { opacity:1; transform:none; } }
+  </style>
+</head>
+<body>
+  <!-- 이름과 경력 등은 아래 텍스트를 직접 수정해 사용하세요. 외부 라이브러리 없이 실행됩니다. -->
+  <div class="page">
+    <header class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="#home" aria-label="맨 위로"><span class="brand-mark">AH</span><span>AH. Portfolio</span></a>
+      <nav class="top-links" aria-label="페이지 내 이동">
+        <a class="desktop-only" href="#about">소개</a>
+        <a class="desktop-only" href="#work">담당 업무</a>
+        <a class="desktop-only" href="#career">경력</a>
+        <a class="nav-cta" href="#projects">프로젝트 ↗</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-label="첫인사">
+        <div>
+          <span class="eyebrow"><i aria-hidden="true"></i> WELCOME TO MY SPACE</span>
+          <h1>안녕하세요,<br /><span class="gradient">김아현</span>입니다<span style="color:#7887ff">.</span></h1>
+          <p class="hero-description">배움의 가능성을 고민하고, 사람과 교육을 연결하는 일을 합니다. 꼼꼼함과 따뜻한 소통을 바탕으로 더 나은 교육 경험을 만들어가고 있습니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#about">저에 대해 알아보기 <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#projects">프로젝트 바로가기 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orbit"></div><div class="orbit orbit-small"></div>
+          <div class="float-chip chip-left"><span class="chip-icon">✨</span> Detail-oriented</div>
+          <div class="portrait-card"><div class="avatar">✿</div><div class="portrait-label">Growing, Every Day 🌿</div></div>
+          <div class="float-chip chip-right"><span class="chip-icon">💜</span> ISFJ · Thoughtful</div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="about">
+        <div class="section-head"><div><span class="section-label">01 / About me</span><h2>저를 소개합니다</h2></div><p class="section-sub">작은 디테일에서 시작되는 좋은 변화</p></div>
+        <div class="about-grid">
+          <article class="panel"><div class="accent-line"></div><h3>차분하게, 책임감 있게, 함께.</h3><p>저는 사람을 이해하고 필요한 것을 세심하게 살피는 태도를 중요하게 생각합니다. 맡은 일은 끝까지 책임감 있게 수행하고, 협업 과정에서는 신뢰와 배려를 우선합니다. 교육이 현장에서 실질적인 변화로 이어질 수 있도록 꾸준히 배우고 성장하고자 합니다.</p><div class="tags"><span class="tag">#꼼꼼함</span><span class="tag">#책임감</span><span class="tag">#협업</span><span class="tag">#배움과성장</span></div></article>
+          <article class="panel"><h3>Profile</h3><div class="profile-list">
+            <div class="profile-item"><div class="icon-box" aria-hidden="true">♙</div><div><span>NAME</span><strong>김아현</strong></div></div>
+            <div class="profile-item"><div class="icon-box" aria-hidden="true">▣</div><div><span>AFFILIATION</span><strong>첨단교육팀</strong></div></div>
+            <div class="profile-item"><div class="icon-box" aria-hidden="true">✦</div><div><span>PERSONALITY</span><strong>ISFJ · 세심하고 성실한 협력자</strong></div></div>
+            <div class="profile-item"><div class="icon-box" aria-hidden="true">↗</div><div><span>FOCUS</span><strong>교육 기획 · 운영 · 성장</strong></div></div>
+          </div></article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="work">
+        <div class="section-head"><div><span class="section-label">02 / What I do</span><h2>담당 업무와 관심 분야</h2></div><p class="section-sub">교육이 더 잘 작동하는 방법을 고민합니다</p></div>
+        <div class="work-grid">
+          <article class="work-card"><div class="icon-box" aria-hidden="true">▤</div><h3>교육 프로그램 기획</h3><p>교육 수요와 현장의 요구를 이해하고, 목적에 맞는 교육 방향과 구성을 고민합니다.</p></article>
+          <article class="work-card"><div class="icon-box" aria-hidden="true">◎</div><h3>교육 운영 및 협업</h3><p>원활한 학습 경험을 위해 운영 과정과 소통 방식을 세심하게 살핍니다.</p></article>
+          <article class="work-card"><div class="icon-box" aria-hidden="true">✧</div><h3>AI · 디지털 교육 관심</h3><p>변화하는 기술과 교육 환경을 탐색하며 실무에 적용할 가능성을 찾아갑니다.</p></article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="career">
+        <div class="section-head"><div><span class="section-label">03 / Experience</span><h2>주요 경력 및 경험</h2></div><p class="section-sub">확인된 정보부터 차근차근 채워가는 기록</p></div>
+        <div class="timeline">
+          <div class="timeline-row"><div class="date">현재</div><div class="trail"><span class="dot"></span></div><div class="timeline-content"><strong>첨단교육팀</strong><p>소속 부서 · 세부 담당 사업 및 근무 기간은 추후 입력</p></div></div>
+          <div class="timeline-row"><div class="date">추가 예정</div><div class="trail"><span class="dot"></span></div><div class="timeline-content"><strong>주요 프로젝트 및 업무 성과</strong><p>실제 참여 사업, 역할, 성과를 확인한 뒤 입력해 주세요.</p></div></div>
+          <div class="timeline-row"><div class="date">추가 예정</div><div class="trail"><span class="dot"></span></div><div class="timeline-content"><strong>이전 경력 · 자격 · 교육 이력</strong><p>경력과 관련 자격사항을 확인한 뒤 자유롭게 추가할 수 있습니다.</p></div></div>
+        </div>
+      </section>
+
+      <section class="project-section reveal" id="projects">
+        <div class="project-wrap"><span class="section-label">04 / Explore more</span><h2>더 많은 이야기를 만나보세요</h2><p>아래 번호를 누르면 각각의 개별 페이지로 이동합니다. 페이지 파일은 나중에 추가할 수 있어요.</p>
+          <div class="quick-grid">
+            <a class="quick-link" href="1.html" data-target="1.html"><span class="quick-num">1</span><span class="quick-text"><strong>첫 번째 페이지</strong><span>1.html로 이동</span></span><span class="quick-arrow" aria-hidden="true">↗</span></a>
+            <a class="quick-link" href="2.html" data-target="2.html"><span class="quick-num">2</span><span class="quick-text"><strong>두 번째 페이지</strong><span>2.html로 이동</span></span><span class="quick-arrow" aria-hidden="true">↗</span></a>
+            <a class="quick-link" href="3.html" data-target="3.html"><span class="quick-num">3</span><span class="quick-text"><strong>세 번째 페이지</strong><span>3.html로 이동</span></span><span class="quick-arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span>© <span id="year">2026</span> Kim Ahyeon. Made with care.</span><span>배움과 성장을 연결하는 포트폴리오 ✦</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold:0.08 });
+      revealItems.forEach(el => observer.observe(el));
+    } else revealItems.forEach(el => el.classList.add('visible'));
+    // 링크는 실제 1.html / 2.html / 3.html로 연결됩니다. 별도 파일이 생기면 자동으로 열립니다.
+    // 현재 파일이 없는 경우에도 버튼의 목적지를 유지하기 위해 링크 이동을 막지 않습니다.
+  </script>
+</body>
+</html>
